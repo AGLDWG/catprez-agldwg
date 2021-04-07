@@ -1,0 +1,694 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sdo: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.gov.au/dataset/asgs-2011-edition-boundaries> a dcat:Resource ;
+    dcterms:identifier "http:--data.gov.au-dataset-asgs-2011-edition-boundaries"^^xsd:token ;
+    dcterms:title "ASGS (2011 Edition) - Boundaries" .
+
+<http://data.gov.au/dataset/asgs-2016-edition-boundaries> a dcat:Resource ;
+    dcterms:created "2018-02-02T00:50:47.250740"^^xsd:dateTime ;
+    dcterms:description "ASGS 2016 digital boundaries in GeoPackage format" ;
+    dcterms:identifier "http:--data.gov.au-dataset-asgs-2016-edition-boundaries"^^xsd:token ;
+    dcterms:modified "2018-05-16T00:00:58.771059"^^xsd:dateTime ;
+    dcterms:publisher <agor:O-000928>,
+        <http://catalogue.linked.data.gov.au/org/abs>,
+        <https://ror.org/00ve6e186>,
+        <https://www.directory.gov.au/portfolios/treasury/australian-bureau-statistics> ;
+    dcterms:title "ASGS (2016 Edition) - Boundaries" .
+
+<http://linked.data.gov.au/dataset/addr1605mb11> a dcat:Resource ;
+    dcterms:created "2019-02-01"^^xsd:date ;
+    dcterms:creator <http://catalogue.linked.data.gov.au/org/csiro> ;
+    dcterms:description """This Loc-I Linkset relates the G-NAF Address individuals to ASGS Mesh Block individuals. Every relation is a geosparql:sfWithin.
+
+The Linkset triples (Address sfWithin MeshBlock) are reified so that each triple is contained within an RDF statement class instance. The triple is identified by the G-NAF MeshBlockMatch persistent identifier and the method used to generate the triple is given by the loci:hadGenerationMethod.
+
+This linkset contains 5 generation methods described by the [Mesh Block Match](http://linked.data.gov.au/def/gnaf/code/MeshBlockMatchTypes).
+
+The triples for the main data in this linkset - the Statements relating Addresses to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "dataset-addr1605mb11"^^xsd:token ;
+    dcterms:modified "2019-02-01"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/abs> ;
+    dcterms:title "Addresses (May 2016) Mesh Block (2011) Linkset" .
+
+<http://linked.data.gov.au/dataset/addrcatch> a dcat:Resource ;
+    dcterms:created "2018-11-10"^^xsd:date ;
+    dcterms:description """This LOC-I Project Linkset relates Address individuals in the G-NAF LOC-I Dataset to Catchment individuals in the Geofabric LOC-I Dataset. Every Address -> Catchment relation is geosparql:sfWithin, that is the Address is sfWithin the Catchment.
+
+The Linkset triples (Address sfWithin Catchment) are reified so that each triple is contained within an RDF Statement class instance so that the triple is numbered and the method used to generate the triple is given by the loci:hadGenerationMethod.
+
+The method used for all triples in this Linkset is the same and it is SpatialIntersection which is defined below.
+
+The triples for the main data in this linkset - the Statements relating Addresses to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "dataset-addrcatch"^^xsd:token ;
+    dcterms:modified "2018-11-10"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/psma> ;
+    dcterms:title "Addresses Catchments Linkset" .
+
+<http://linked.data.gov.au/dataset/addrmb11> a dcat:Resource ;
+    dcterms:created "2019-02-01"^^xsd:date ;
+    dcterms:description """This Loc-I Linkset relates the G-NAF Address individuals to ASGS Mesh Block individuals. Every relation is a geosparql:sfWithin.
+
+The Linkset triples (Address sfWithin MeshBlock) are reified so that each triple is contained within an RDF statement class instance. The triple is identified by the G-NAF MeshBlockMatch persistent identifier and the method used to generate the triple is given by the loci:hadGenerationMethod.
+
+This linkset contains 5 generation methods described by the [Mesh Block Match](http://linked.data.gov.au/def/gnaf/code/MeshBlockMatchTypes).
+
+The triples for the main data in this linkset - the Statements relating Addresses to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "dataset-addrmb11"^^xsd:token ;
+    dcterms:modified "2019-02-01"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    dcterms:title "Addresses (Nov 2018) Mesh Block (2011) Linkset" .
+
+<http://linked.data.gov.au/dataset/agiftcrsth> a dcat:Resource ;
+    dcterms:created "2019-04-05"^^xsd:date ;
+    dcterms:creator <http://linked.data.gov.au/dataset/agiftcrsth/nick> ;
+    dcterms:description """This Linkset contains [SKOS mapping properties](https://www.w3.org/TR/skos-reference/#mapping)
+between Concepts in the [AGIFT](http://data.naa.gov.au/def/agift) and Concepts in the [CRS Thesaurus](https://github.com/CSIRO-enviro-informatics/crsth)
+which are both vocabularies of Australian government functions.
+
+Only the following SKOS mapping properties are used as link predicates: `skos:mappingRelation`,
+`skos:closeMatch`, `skos:exactMatch`, `skos:broadMatch`, `skos:narrowMatch` and `skos:relatedMatch`."""@en ;
+    dcterms:identifier "dataset-agiftcrsth"^^xsd:token ;
+    dcterms:modified "2019-07-05"^^xsd:date ;
+    dcterms:publisher [ ] ;
+    dcterms:title "AGIFT CRS Thesaurus Linkset" .
+
+<http://linked.data.gov.au/dataset/asgs> a dcat:Resource ;
+    dcterms:identifier "dataset-asgs"^^xsd:token ;
+    dcterms:title "Australian Statistical Geographical Standard Boundaries"^^xsd:string .
+
+<http://linked.data.gov.au/dataset/asgs2016> a dcat:Resource ;
+    dcterms:creator <https://orcid.org/0000-0001-5075-6234>,
+        <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description "A Linked Data representation of the Australian Statistical Geography Standard, 2016, represented according to an ASGS ontology. This is derived from the Australian Bureau of Statistics Web Feature Services representation. " ;
+    dcterms:identifier "dataset-asgs2016"^^xsd:token ;
+    dcterms:publisher <agor:O-000928>,
+        <http://catalogue.linked.data.gov.au/org/abs>,
+        <https://ror.org/00ve6e186>,
+        <https://www.directory.gov.au/portfolios/treasury/australian-bureau-statistics> ;
+    dcterms:title "ASGS 2016 - distributed as Linked Data" .
+
+<http://linked.data.gov.au/dataset/asgs2016/> a dcat:Resource ;
+    dcterms:identifier "dataset-asgs2016-"^^xsd:token .
+
+<http://linked.data.gov.au/dataset/geofabric> a dcat:Resource ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description "A Linked Data representation of the content of the Geofabric in RDF & HTML" ;
+    dcterms:identifier "dataset-geofabric"^^xsd:token ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    dcterms:title "Geofabric - distributed as Linked Data" .
+
+<http://linked.data.gov.au/dataset/geofabric-catchments> a dcat:Resource ;
+    dcterms:identifier "dataset-geofabric-catchments"^^xsd:token ;
+    dcterms:title "Catchment Boundaries"^^xsd:string .
+
+<http://linked.data.gov.au/dataset/geofabric/> a dcat:Resource ;
+    dcterms:identifier "dataset-geofabric-"^^xsd:token .
+
+<http://linked.data.gov.au/dataset/gnaf> a dcat:Resource ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description "A Linked Data representation of the content of the Geocoded National Address File (G-NAF) represented according to a GNAF ontology. This is derived from the PSMA G-NAF product. " ;
+    dcterms:identifier "dataset-gnaf"^^xsd:token ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/psma> ;
+    dcterms:title "G-NAF - distributed as Linked Data",
+        "Geocoded National Address File"^^xsd:string .
+
+<http://linked.data.gov.au/dataset/gnaf/> a dcat:Resource ;
+    dcterms:identifier "dataset-gnaf-"^^xsd:token .
+
+<http://linked.data.gov.au/dataset/mb16cc> a dcat:Resource ;
+    dcterms:created "2019-01-15"^^xsd:date ;
+    dcterms:description """This LOC-I Project Linkset relates Meshblock individuals in the ASGS LOC-I Dataset to Contracted Catchment individuals in the Geofabric LOC-I Dataset. All Meshblock -> Catchment relations are either transitiveSfOverlap, sfWithin, or sfContains. That is a Meshblock either overlaps or is wholly within the Catchment, or in some cases the Meshblock wholly contains the Catchment.
+The Linkset triples (Meshblock sfWithin Catchment, Meshblock sfContains Catchment, Meshblock transitiveSfOverlap Catchment) are reified so that each triple is contained within an RDF Statement class instance so that the triple is numbered and the method used to generate the triple is given by the loci:hadGenerationMethod.
+The method used for all triples in this Linkset is the same and it is SpatialIntersection which is defined below.
+The triples for the main data in this linkset - the Statements relating Meshblocks to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "dataset-mb16cc"^^xsd:token ;
+    dcterms:modified "2019-01-15"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    dcterms:title "Meshblocks Contracted Catchments Linkset" .
+
+<http://linked.data.gov.au/dataset/png> a dcat:Resource ;
+    dcterms:identifier "dataset-png"^^xsd:token ;
+    dcterms:title "National Gazeteer of Australia"^^xsd:string .
+
+<http://linked.data.gov.au/def/asgs> a dcat:Resource ;
+    dcterms:created "2018-11-23" ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420>,
+        <https://orcid.org/0000-0002-4305-6085> ;
+    dcterms:description """Ontology for the Australian Statistical Geography Standard (ASGS), a framework of statistical areas used by the Australian Bureau of Statistics (ABS) and other organisations to enable the publication of statistics that are comparable and spatially integrated. This ontology contains the definitions for the ABS Structures which are areas that the ABS designs specifically for outputting statistics.
+
+ABS structures: 
+
+- Mesh Block, Statistical Areas (Level 1 to Level 4), Greater Capital City Statistical Areas, State or Territory, Country classes
+- Indigenous location, Indigenous area, Indigenous region 
+- Urban Centre and Locality, Section of State Range, Section of State, Significant Urban Area
+
+Non ABS Structures which are not defined or maintained by the ABS but represent administrative areas for which the ABS is committed to providing a range of statistics. 
+The classes defined here corresponds to ABS approximations of spatial areas or regions which are defined elsewhere
+
+- Local Government Areas (LGAs)
+- Postal Areas (POAs)
+- State Suburbs (SSCs)
+- Commonwealth Electoral Divisions (CEDs)
+- State Electoral Divisions (SEDs)
+- Australian Drainage Divisions (ADDs)
+- Natural Resource Management Regions (NRMRs)
+- Tourism Regions (TRs)
+
+The ASGS uses Mesh Blocks as a common building block for all structures. Mesh Blocks are small enough that they can accurately approximate the changing administrative areas maintained by other organisations, without changing themselves.
+
+The publication of the ASGS ontology is part of the Australian Bureau of Statistics contribution to a joint effort to publish authoritative, interconnected spatial products (Location Index project).
+
+The ASGS Ontology is packaged in multiple graphs:
+
+- http://linked.data.gov.au/def/asgs (this graph) contains the core classes for ASGS statistical units, and a small number of properties relating to their identity, classification, and containment hierarchy
+- http://linked.data.gov.au/def/asgs-cat contains the meshblock classification scheme
+- http://linked.data.gov.au/def/asgs-id contains specialised string types for identifiers and labels
+- http://linked.data.gov.au/def/asgs-path contains association classes and properties relating to paths between instances of the core classes
+- http://linked.data.gov.au/def/asgs-isof (deprecated) contains specialized predicates for containment relationships - this functionality is provided by generic 'within' and 'isComposedOf' relations instead
+- http://linked.data.gov.au/def/asgs-code (deprecated) contains specialised annotation properties for identifiers and labels - this functionality has been superseded by a set of data-types to be used in conjunction with more generic properties
+- http://linked.data.gov.au/def/asgs-prop (deprecated) contains specialised ASGS properties for relationships, classifiers, identifiers and labels - this functionality has been superseded by use of types from standardized RDF vocabularies""" ;
+    dcterms:identifier "def-asgs"^^xsd:token ;
+    dcterms:modified "2021-03-19" ;
+    dcterms:publisher <http://linked.data.gov.au/org/abs> ;
+    dcterms:title "ASGS Ontology - ABS Structures and non-ABS structures" ;
+    sdo:codeRepository "https://github.com/AGLDWG/asgs-ont/"^^xsd:anyURI .
+
+<http://linked.data.gov.au/def/borehole-purpose> a dcat:Resource ;
+    dcterms:created "2020-07-17"^^xsd:date ;
+    dcterms:description "The primary purpose of a borehole based on the legislative State Act and/or the resources industry sector." ;
+    dcterms:identifier "def-borehole-purpose"^^xsd:token ;
+    dcterms:modified "2020-09-16"^^xsd:date ;
+    dcterms:title "Borehole Purpose" .
+
+<http://linked.data.gov.au/def/borehole-status-event> a dcat:Resource ;
+    dcterms:created "2020-01-21"^^xsd:date ;
+    dcterms:description "Events that occur during the lifecycle a borehole that affect the status or history, or convert a borehole from one purpose to another." ;
+    dcterms:identifier "def-borehole-status-event"^^xsd:token ;
+    dcterms:modified "2020-07-07"^^xsd:date ;
+    dcterms:title "Borehole Status Event" .
+
+<http://linked.data.gov.au/def/dataciteroles> a dcat:Resource ;
+    dcterms:created "2019-10-17"^^xsd:date ;
+    dcterms:description "A SKOS version of the DataCite Metadata Schema V 4.3 Table 5 contributorType roles." ;
+    dcterms:identifier "def-dataciteroles"^^xsd:token ;
+    dcterms:modified "2020-01-10"^^xsd:date ;
+    dcterms:title "DataCite Metadata Schema Roles" .
+
+<http://linked.data.gov.au/def/dataset> a dcat:Resource ;
+    dcterms:created "2015-06-19"^^xsd:date ;
+    dcterms:creator <http://linked.data.gov.au/> ;
+    dcterms:description """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
+
+The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
+
+By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
+
+Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
+    dcterms:identifier "def-dataset"^^xsd:token ;
+    dcterms:modified "2017-09-26"^^xsd:date ;
+    dcterms:publisher <http://linked.data.gov.au/> ;
+    dcterms:title "Dataset Ontology"@en .
+
+<http://linked.data.gov.au/def/datatype> a dcat:Resource ;
+    dcterms:created "2019-03-25"^^xsd:date ;
+    dcterms:creator [ ] ;
+    dcterms:description """A set of classes representing data-types. \r
+These may be used for observation results, or for the range of specific properties in other applications where scaled numbers, ranges, percents etc are required. """ ;
+    dcterms:identifier "def-datatype"^^xsd:token ;
+    dcterms:modified "2019-10-03"^^xsd:date ;
+    dcterms:title "Datatypes" .
+
+<http://linked.data.gov.au/def/fsdf> a dcat:Resource ;
+    dcterms:created "2018-03-07"^^xsd:date ;
+    dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """An ontology describing the data class-level relationships between Semantic Web versions of FSDF datasets.
+
+This ontology is an 'upper ontology' in that it serves as a high-level model for other Semantic Web-modelled datasets to map 'up' to. This is so that there is a path for testing interoperability between future FSDF Semantic Web datasets."""@en ;
+    dcterms:identifier "def-fsdf"^^xsd:token ;
+    dcterms:modified "2018-06-21" ;
+    dcterms:publisher <http://pid.geoscience.gov.au/org/ga/geoscienceaustralia>,
+        <http://test.linked.data.gov.au/org/O-000887> ;
+    dcterms:title "FSDF ontology"^^xsd:string .
+
+<http://linked.data.gov.au/def/geo-commodities> a dcat:Resource ;
+    dcterms:created "2020-02-17"^^xsd:date ;
+    dcterms:description "The types of commodities in geoscience. Commodities have economic signifiance and are separate from host rock, accessory non-economic minerals, or other associated materials that are not commoditised. The commodity vocabulary is hierarchical, to represent each commodity as a member of a commodity category (eg, base metal, precious metal, industrial mineral, energy)." ;
+    dcterms:identifier "def-geo-commodities"^^xsd:token ;
+    dcterms:modified "2020-07-29"^^xsd:date ;
+    dcterms:title "Geoscience Commodities" .
+
+<http://linked.data.gov.au/def/geofabric> a dcat:Resource ;
+    dcterms:created "2019-06-07"^^xsd:date ;
+    dcterms:creator [ ] ;
+    dcterms:description """A bare-bones ontology for the Australian Hydrological Geospatial Fabric.
+
+This small ontology characterises major parts of the [Australian Hydrological Geospatial Fabric](http://www.bom.gov.au/water/geofabric/) for their delivery as [Linked Data](https://www.w3.org/wiki/LinkedData) via the [Geofabric LDAPI](http://linked.data.gov.au/dataset/geofabric).
+
+This ontology accords with the [Loc-I Project](http://locationindex.org)'s requirements for the delivery of spatial [Semantic Web](https://www.w3.org/standards/semanticweb/) objects."""@en ;
+    dcterms:identifier "def-geofabric"^^xsd:token ;
+    dcterms:modified "2019-07-29"^^xsd:date ;
+    dcterms:publisher [ ] ;
+    dcterms:title "Geofabric Ontology"@en .
+
+<http://linked.data.gov.au/def/geofeatures> a dcat:Resource ;
+    dcterms:created "2020-01-23"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0001-5489-9590>,
+        <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """This OWL ontology describes classes of geologic/geological feature relevant to the duties of the Geological Survey of Queensland.
+
+Elements of this ontology are designed to fit within other, broader, ontologies, in particular [Semantic Web for Earth and Environmental Terminology (SWEET) Ontologies](https://github.com/ESIPFed/sweet) ontologies. 
+
+The core of this ontology is a class hierarchy starting with "geologic province", as it is defined in SWEET, and extending down into multiple subclasses of it."""@en ;
+    dcterms:identifier "def-geofeatures"^^xsd:token ;
+    dcterms:modified "2020-03-10"^^xsd:date ;
+    dcterms:publisher <http://linked.data.gov.au/org/gsq> ;
+    dcterms:title "Geologic Features Ontology"@en ;
+    sdo:codeRepository "https://github.com/geological-survey-of-queensland/geofeatures-ont"^^xsd:anyURI .
+
+<http://linked.data.gov.au/def/geological-observation-instrument> a dcat:Resource ;
+    dcterms:created "2020-05-11"^^xsd:date ;
+    dcterms:description "Types of instruments used to perform geological observations." ;
+    dcterms:identifier "def-geological-observation-instrument"^^xsd:token ;
+    dcterms:modified "2020-05-14"^^xsd:date ;
+    dcterms:title "Geological Observation Instrument" .
+
+<http://linked.data.gov.au/def/gnaf> a dcat:Resource ;
+    dcterms:created "2017-12-23"^^xsd:date ;
+    dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """An ontology for the content of the PSMA Geocoded National Address File (G-NAF).
+
+  The G-NAF is Australia’s authoritative, geocoded address file. It contains more than 13 million Australian physical address records. The records include geocodes which are latitude and longitude map coordinates with coordinate reference system details and other information necissary to prcicely locate addresses on the earth's surface.
+
+  The G-NAF does not contain any names or personal information.
+
+  The base content of the G-NAF is available freely online at <https://data.gov.au/dataset/geocoded-national-address-file-g-naf> and also via a Linked Data API that uses this ontology at <http://gnafld.net>.
+
+  This ontology draws heavily from the OWL ontology version of the ISO19160-1:2015 "Addressing -- Part 1: Conceptual model" standard (see <https://www.iso.org/standard/61710.html>) which has been created by the ISO TC211, Group for Ontology Management (GOM) and published online by the Australian Government Linked Data Working Group at <http://reference.data.gov.au/def/ont/iso19160-1-address>."""@en ;
+    dcterms:identifier "def-gnaf"^^xsd:token ;
+    dcterms:modified "2018-02-07"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/psma> ;
+    dcterms:title "GNAF ontology"^^xsd:string .
+
+<http://linked.data.gov.au/def/gsq-alias> a dcat:Resource ;
+    dcterms:created "2020-03-23"^^xsd:date ;
+    dcterms:description "Sources for any alternate names for features, sites, surveys, or samples catalogued by the Geological Survey of Queensland." ;
+    dcterms:identifier "def-gsq-alias"^^xsd:token ;
+    dcterms:modified "2020-12-04"^^xsd:date ;
+    dcterms:title "GSQ Alias" .
+
+<http://linked.data.gov.au/def/gsq-roles> a dcat:Resource ;
+    dcterms:created "2019-10-17"^^xsd:date ;
+    dcterms:description "The roles of Agents (People and Organisations) in relation to Entities (Datasets, Samples etc.)" ;
+    dcterms:identifier "def-gsq-roles"^^xsd:token ;
+    dcterms:modified "2020-12-09"^^xsd:date ;
+    dcterms:title "Geological Survey of Queensland's Agent Roles" .
+
+<http://linked.data.gov.au/def/observation-detail-type> a dcat:Resource ;
+    dcterms:created "2020-03-30"^^xsd:date ;
+    dcterms:description "A definition for vocabulary that describes its purpose." ;
+    dcterms:identifier "def-observation-detail-type"^^xsd:token ;
+    dcterms:modified "2020-03-30"^^xsd:date ;
+    dcterms:title "Observation Detail Type" .
+
+<http://linked.data.gov.au/def/organisation-name-types> a dcat:Resource ;
+    dcterms:created "2020-03-25"^^xsd:date ;
+    dcterms:description "Types of names provided by organisations." ;
+    dcterms:identifier "def-organisation-name-types"^^xsd:token ;
+    dcterms:modified "2020-03-25"^^xsd:date ;
+    dcterms:title "Organisation Name Types" .
+
+<http://linked.data.gov.au/def/organisation-type> a dcat:Resource ;
+    dcterms:created "2020-03-25"^^xsd:date ;
+    dcterms:description "The code that classifies institutional units according to the type of legal organisation that best describes their structure." ;
+    dcterms:identifier "def-organisation-type"^^xsd:token ;
+    dcterms:modified "2020-03-25"^^xsd:date ;
+    dcterms:title "Organisation Type" .
+
+<http://linked.data.gov.au/def/phs> a dcat:Resource ;
+    dcterms:created "2020-02-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730>,
+        <https://orcid.org/0000-0003-3357-2307> ;
+    dcterms:description "An ontology for surveillance events relating to plant pests. These events comprise field observations and associated diagnostic work (i.e. taxonomic identification) of samples taken as part of the observation. Surveillance is one of the core activities of national plant protection organizations (NPPOs). It provides NPPOs with a technical basis for many phytosanitary measures; including phytosanitary import requirements, pest free areas, pest reporting and eradication, and pest status in an area. All terms are defined by ISPM 5."@en ;
+    dcterms:identifier "def-phs"^^xsd:token ;
+    dcterms:modified "2020-06-17"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/dawe> ;
+    dcterms:title "Plant Health Surveillance Ontology"@en ;
+    sdo:codeRepository "https://github.com/AGLDWG/phs-ont"^^xsd:anyURI .
+
+<http://linked.data.gov.au/def/placenames> a dcat:Resource ;
+    dcterms:created "2018-08-02"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420>,
+        <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """**Place Names** is an RDF/OWL Ontology to define the structure and relationship of the names of geospatial features (locations).
+
+A **place-name** is a text string in a specified language that is 
+
+- assigned by an agent (person or organization)
+- assigned a designated 'status', with default="informal"
+- denotes a natural or constructed location 
+
+An **official-place-name** is a **place-name** that also 
+
+- is authorized by a place-naming-authority, often a jurisidiction (national, state or local government) 
+- is a member item in a gazetteer
+- has lifecycle information (status, dates) 
+
+Each individual place-name or official-place-name is associated with one **place**. 
+
+A **place** is 
+
+- a location with at least a point geometry
+- which has a specified classification (inhabited place, administrative area, mountain, school, station, park ...). 
+- with one or more names associated with each individual place. 
+
+This ontology uses classes and properties from existing vocabularies, in particular
+
+- [GeoSPARQL](http://www.opengis.net/ont/geosparql)
+- [SKOS](http://www.w3.org/2004/02/skos/core) 
+- [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+
+![](./images/placename-details.png)""" ;
+    dcterms:identifier "def-placenames"^^xsd:token ;
+    dcterms:modified "2020-09-07"^^xsd:date ;
+    dcterms:publisher [ ] ;
+    dcterms:title "Place Names Ontology"@en ;
+    sdo:codeRepository "https://github.com/GeoscienceAustralia/Placenames-Ontology"^^xsd:anyURI .
+
+<http://linked.data.gov.au/def/plot/> a dcat:Resource ;
+    dcterms:created "2019-03-25"^^xsd:date ;
+    dcterms:creator [ ],
+        [ ],
+        [ ] ;
+    dcterms:description """This vocabulary provides a set of classes to support capturing of plot- and site-based ecological survey data. It is primary related to vegetation surveys, following the methpdologies outlined in the Australian Soil and Land Survey Field Handbook. 
+
+TERN ontology is technically an extension to the W3C SSN/SOSA vocabulary, and also uses elements from the SSN Extensions ontology. """ ;
+    dcterms:identifier "def-plot-"^^xsd:token ;
+    dcterms:modified "2020-07-06"^^xsd:date ;
+    dcterms:publisher <https://w3id.org/tern/resources/a083902d-d821-41be-b663-1d7cb33eea66> ;
+    dcterms:title "TERN Ontology" .
+
+<http://linked.data.gov.au/def/project> a dcat:Resource ;
+    dcterms:created "2017-08-14"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+    dcterms:description """
+The PROJECT ontology is designed to enable publication of information describing projects, including research projects. It is not designed to support project management, though sub-activities are included. As far as possible PROJECT is intended to be domain-neutral, and it is expected that domains and applications will specialize or extend this ontology for more specific purposes.
+
+The ontology gives terms to support the representation of:
+
+- project planning, funding, goals
+- project stakeholders and relationships
+- project activities and timeline
+
+One specialization is included - the **Research Project** - which has been the subject of several predecessor designs that have informed the design of this ontology, including:
+
+- In [FOAF](http://xmlns.com/foaf/0.1/) the foaf:Project class is a stub (no specific properties) which was included primarily to act as the topic of a homepage
+- [Description of a Project ontology (DOAP)](https://en.wikipedia.org/wiki/DOAP) is oriented to software development projects
+- [Funding, Research Administration and Projects Ontology (FRAPO)](http://purl.org/cerif/frapo) is aimed at describing administrative information relating to grant funding and research projects. 
+- [Project Documents Ontology (PDO)](http://vocab.deri.ie/pdo) relates to  various documents in a project-specific setting, like meeting minutes, status reports etc
+- In [VIVO-ISF](https://github.com/openrif/vivo-isf-ontology) the [vivo:Project](http://vivoweb.org/ontology/core#Project) class is very lightweight, characterised only by its timing and geographic focus
+
+The [DBPedia ontology](http://dbpedia.org/ontology/) provides what is probably the most general purpose class for projects: [dbo:Project](http://dbpedia.org/ontology/Project) is described as "a temporary endeavor undertaken to achieve defined objectives" and has key properties relating to timing, objectives, and classification (keywords).
+
+PROJECT extends the W3C PROV-O ontology. Otherwise, it has no dependencies except for the normal RDF/OWL infrastructure ([RDF](https://www.w3.org/TR/rdf11-concepts/), [RDFS](https://www.w3.org/TR/rdf-schema/), [OWL2](https://www.w3.org/TR/owl2-quick-reference/)), [Dublin Core](http://dublincore.org/documents/2010/10/11/dcmi-terms/) for some ontology metadata, and [SKOS](https://www.w3.org/TR/skos-reference/) to support some relationships between Role values, and project classification.
+
+A summary of the main classes and relationships in PROJECT is shown in the diagram below, including the key superclass `prov:Activity`.
+
+![summary of PROJECT ontology](../images/Project-overview.png) 
+
+Core classes from PROJECT vocabulary. 
+""" ;
+    dcterms:identifier "def-project"^^xsd:token ;
+    dcterms:modified "2020-04-24"^^xsd:date ;
+    dcterms:title "A Project ontology" ;
+    sdo:codeRepository "https://github.com/dr-shorthair/project-ont"^^xsd:anyURI .
+
+<http://linked.data.gov.au/def/reg-status/> a dcat:Resource ;
+    dcterms:created "2018-07-23"^^xsd:date ;
+    dcterms:creator <https://www.epimorphics.com> ;
+    dcterms:description """This vocabulary is a re-published and essentially unchanged version of the Registry Ontology's (http://epimorphics.com/public/vocabulary/Registry.html) *Status* vocabulary (online in RDF: http://purl.org/linked-data/registry). This re-publication has been performed to allow for the URIs of each vocab term (skos:Concept) to resolve to both human-readable and machine-readable forms (HTML and RDF, respectively) using HTTP content negotiation.
+
+    Note that just like the original form of this vocabulary, while it is a SKOS vocabulary implemented as a single skos:ConceptScheme, it is also an OWL Ontology and that each *Status* is both a skos:Concept and a reg:Status individual."""@en ;
+    dcterms:identifier "def-reg-status-"^^xsd:token ;
+    dcterms:modified "2020-06-27"^^xsd:date ;
+    dcterms:publisher <http://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "Registry Status Vocabulary"@en .
+
+<http://linked.data.gov.au/def/report-detail-type> a dcat:Resource ;
+    dcterms:created "2020-04-29"^^xsd:date ;
+    dcterms:description "Miscellaneous details relating to reports and documents." ;
+    dcterms:identifier "def-report-detail-type"^^xsd:token ;
+    dcterms:modified "2020-07-07"^^xsd:date ;
+    dcterms:title "Report Detail Type" .
+
+<http://linked.data.gov.au/def/resource-project-lifecycle> a dcat:Resource ;
+    dcterms:created "2020-02-28"^^xsd:date ;
+    dcterms:description "The stage in the lifecycle of a project (e.g. mine site, petroleum field, quarry) that describes the maturity of resource defintion and production." ;
+    dcterms:identifier "def-resource-project-lifecycle"^^xsd:token ;
+    dcterms:modified "2020-11-27"^^xsd:date ;
+    dcterms:title "Resource Project Lifecycle" .
+
+<http://linked.data.gov.au/def/sample-location-status> a dcat:Resource ;
+    dcterms:created "2020-02-07"^^xsd:date ;
+    dcterms:description "The status of a sample with respect to its location." ;
+    dcterms:identifier "def-sample-location-status"^^xsd:token ;
+    dcterms:modified "2020-02-08"^^xsd:date ;
+    dcterms:title "Sample Location Status" .
+
+<http://linked.data.gov.au/def/sample-location-types> a dcat:Resource ;
+    dcterms:created "2020-02-07"^^xsd:date ;
+    dcterms:description "Indexed storage items and locations used in storage facilities for inventory management and warehousing." ;
+    dcterms:identifier "def-sample-location-types"^^xsd:token ;
+    dcterms:modified "2020-02-07"^^xsd:date ;
+    dcterms:title "Sample Location Types" .
+
+<http://linked.data.gov.au/def/sample-material> a dcat:Resource ;
+    dcterms:created "2020-02-08"^^xsd:date ;
+    dcterms:description "Types of materials of which samples can consist of in Geoscience." ;
+    dcterms:identifier "def-sample-material"^^xsd:token ;
+    dcterms:modified "2020-05-13"^^xsd:date ;
+    dcterms:title "Sample Material" .
+
+<http://linked.data.gov.au/def/sample-type> a dcat:Resource ;
+    dcterms:created "2020-02-07"^^xsd:date ;
+    dcterms:description "Types of sample used in Geoscience." ;
+    dcterms:identifier "def-sample-type"^^xsd:token ;
+    dcterms:modified "2020-06-24"^^xsd:date ;
+    dcterms:title "Sample Type" .
+
+<http://linked.data.gov.au/def/site-detail-type> a dcat:Resource ;
+    dcterms:created "2020-03-30"^^xsd:date ;
+    dcterms:description "Miscellaneous Site Details." ;
+    dcterms:identifier "def-site-detail-type"^^xsd:token ;
+    dcterms:modified "2020-06-26"^^xsd:date ;
+    dcterms:title "Site Detail Type" .
+
+<http://linked.data.gov.au/def/telephone-type> a dcat:Resource ;
+    dcterms:created "2020-03-25"^^xsd:date ;
+    dcterms:description "The code and description that differentiates the type of telecommunications device based on the transmission service connected to the telephone network." ;
+    dcterms:identifier "def-telephone-type"^^xsd:token ;
+    dcterms:modified "2020-05-13"^^xsd:date ;
+    dcterms:title "Telephone Type" .
+
+<http://linked.data.gov.au/def/trs> a dcat:Resource ;
+    dcterms:created "2019-10-17"^^xsd:date ;
+    dcterms:description "Temporal reference system, such temporal coordinate systems (with origin, directions, and scales), calendar-clock combinations, or a (possibly hierarchical) ordinal system." ;
+    dcterms:identifier "def-trs"^^xsd:token ;
+    dcterms:modified "2020-06-11"^^xsd:date ;
+    dcterms:title "Temporal Reference Systems" .
+
+<http://linked.data.gov.au/linkset/0854185c-a5d9-463b-b833-585dc82588f2> a dcat:Resource ;
+    dcterms:created "2019-03-01"^^xsd:date ;
+    dcterms:description ""@en ;
+    dcterms:identifier "linkset-0854185c-a5d9-463b-b833-585dc82588f2"^^xsd:token ;
+    dcterms:modified "2019-03-01"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000928> ;
+    dcterms:title "Meshblocks 2011/2016 Correspondences by area" .
+
+<http://linked.data.gov.au/linkset/eawlyn> a dcat:Resource ;
+    dcterms:created "2019-02-01"^^xsd:date ;
+    dcterms:description """This Loc-I Linkset relates the G-NAF Address individuals to ASGS Mesh Block individuals. Every relation is a geosparql:sfWithin.
+
+The Linkset triples (Address sfWithin MeshBlock) are reified so that each triple is contained within an RDF statement class instance. The triple is identified by the G-NAF MeshBlockMatch persistent identifier and the method used to generate the triple is given by the loci:hadGenerationMethod.
+
+This linkset contains 5 generation methods described by the [Mesh Block Match](http://linked.data.gov.au/def/gnaf/code/MeshBlockMatchTypes).
+
+The triples for the main data in this linkset - the Statements relating Addresses to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "linkset-eawlyn"^^xsd:token ;
+    dcterms:modified "2019-02-01"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    dcterms:title "Addresses (May 2016) to Mesh Block (2016) Linkset" .
+
+<http://linked.data.gov.au/linkset/iwdhmf> a dcat:Resource ;
+    dcterms:created "2019-02-01"^^xsd:date ;
+    dcterms:description """This Loc-I Linkset relates the G-NAF Address individuals to ASGS Mesh Block individuals. Every relation is a geosparql:sfWithin.
+
+The Linkset triples (Address sfWithin MeshBlock) are reified so that each triple is contained within an RDF statement class instance. The triple is identified by the G-NAF MeshBlockMatch persistent identifier and the method used to generate the triple is given by the loci:hadGenerationMethod.
+
+This linkset contains 5 generation methods described by the [Mesh Block Match](http://linked.data.gov.au/def/gnaf/code/MeshBlockMatchTypes).
+
+The triples for the main data in this linkset - the Statements relating Addresses to Catchments - are valid RDF in the Turtle syntax but an unusual namespacing arrangement is used so all terms are indicated with as few letters as possible, mostly one letter then colon, e.g. s: for http://www.w3.org/1999/02/22-rdf-syntax-ns#subject, rather than the more common rdf:subject. This is simply to reduce file size."""@en ;
+    dcterms:identifier "linkset-iwdhmf"^^xsd:token ;
+    dcterms:modified "2019-02-01"^^xsd:date ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000886> ;
+    dcterms:title "Addresses (Nov 2018) Mesh Block (2016) Linkset" .
+
+<http://registry.it.csiro.au/def/gba> a dcat:Resource ;
+    dcterms:description "Geological and Bioregional Assessments vocabularies, glossaries and other reference data" ;
+    dcterms:identifier "http:--registry.it.csiro.au-def-gba"^^xsd:token ;
+    dcterms:modified "2019-06-13T12:14:41.795000+00:00"^^xsd:dateTime ;
+    dcterms:title "Geological and Bioregional Assessments" .
+
+<http://registry.it.csiro.au/def/gba/glossary> a dcat:Resource ;
+    dcterms:description "Terms and definitions used in technical products in the Geological and Bioregional Assessment Program" ;
+    dcterms:identifier "http:--registry.it.csiro.au-def-gba-glossary"^^xsd:token ;
+    dcterms:modified "2020-05-07T03:44:52.754000+00:00"^^xsd:dateTime ;
+    dcterms:title "Glossary" .
+
+<http://registry.it.csiro.au/def/gba/source> a dcat:Resource ;
+    dcterms:description "Sources of terms and definitions used in reports from the Geological and Bioregional Assessment Program " ;
+    dcterms:identifier "http:--registry.it.csiro.au-def-gba-source"^^xsd:token ;
+    dcterms:modified "2019-06-06T03:21:52.164000+00:00"^^xsd:dateTime ;
+    dcterms:title "Sources of GBA terms and definitions" .
+
+<https://data.gov.au/dataset/australian-hydrological-geospatial-fabric-geofabric> a dcat:Resource ;
+    dcterms:created "2013-05-12"^^xsd:date ;
+    dcterms:description """The Australian Hydrological Geospatial Fabric (Geofabric) is a specialised Geographic\r
+    Information System (GIS). It registers the spatial relationships between important hydrological features such as\r
+    rivers, water bodies, aquifers and monitoring points.""" ;
+    dcterms:identifier "https:--data.gov.au-dataset-australian-hydrological-geospatial-fabric-geofabric"^^xsd:token ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/bom>,
+        <https://ror.org/04dkp1p98> ;
+    dcterms:title "Australian Hydrological Geospatial Fabric (Geofabric)" .
+
+<https://data.gov.au/dataset/geocoded-national-address-file-g-naf> a dcat:Resource ;
+    dcterms:created "2016-02-22"^^xsd:date,
+        "2018-02-02T00:50:47.250740"^^xsd:dateTime ;
+    dcterms:description "ASGS 2016 digital boundaries in GeoPackage format",
+        """The Geocoded National Address File (referred to as G-NAF) is Australia’s authoritative, geocoded address file.\r
+\r
+G-NAF is one of the most ubiquitous and powerful spatial datasets. It contains more than 13 million Australian physical address records. The records include geocodes. These are latitude and longitude map coordinates. G-NAF does not contain any names or personal information.\r
+\r
+G-NAF is produced by PSMA Australia Limited (PSMA), an unlisted public company formed by the nine governments of Australia to collate and standardise, format and aggregate location data from each of the jurisdictions into authoritative location based national datasets.\r
+\r
+This initiative to make the G-NAF openly available has been achieved through collaboration between PSMA and the Commonwealth and State and Territory Governments.\r
+\r
+Updated versions of the G-NAF will be published on a quarterly basis from February 2016.\r
+\r
+For further information on G-NAF, including FAQs on the data, see: www.psma.com.au/products/g-naf or contact and PSMA’s network of value added resellers and integrators provide a range of commercial products based on G-NAF including software solutions, consultancy and support.""" ;
+    dcterms:identifier "https:--data.gov.au-dataset-geocoded-national-address-file-g-naf"^^xsd:token ;
+    dcterms:modified "2018-05-16T00:00:58.771059"^^xsd:dateTime ;
+    dcterms:publisher <http://catalogue.linked.data.gov.au/org/O-000928>,
+        <http://catalogue.linked.data.gov.au/org/psma>,
+        <https://data.gov.au/organization/760c24b1-3c3d-4ccb-8196-41530fcdebd5> ;
+    dcterms:title "ASGS (2016 Edition) - Boundaries",
+        "PSMA Geocoded National Address File (G-NAF)" .
+
+<https://linked.data.gov.au/dataset> a dcat:Resource ;
+    dcterms:creator <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:description "This register contains dataset IRIs registered with the Australian Government Linked Data Working Group. This RDF representation of it is incomplete but will shortly be delegated to a catalogue that will list all IRIs within the register." ;
+    dcterms:identifier "dataset"^^xsd:token ;
+    dcterms:publisher <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "AGLDWG Register of Dataset IRIs" .
+
+<https://linked.data.gov.au/def> a dcat:Resource ;
+    dcterms:creator <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:description "This register contains definitional IRIs for ontologies, vocabularies etc. registered with the Australian Government Linked Data Working Group. This RDF representation of it is incomplete but will shortly be delegated to a catalogue that will list all IRIs within the register." ;
+    dcterms:identifier "def"^^xsd:token ;
+    dcterms:publisher <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "AGLDWG Register of Definitions IRIs" .
+
+<https://linked.data.gov.au/def/agop> a dcat:Resource ;
+    dcterms:created "2020-05-01"^^xsd:date ;
+    dcterms:creator <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:description """A profile of OWL for the purposes of Australian Government multi-ontology alignment and ontology presentation. \r
+    \r
+This profile contains several resources that specify the elements required of an ontology for it to be conformant with this profile and validation resources to test conformance."""@en ;
+    dcterms:identifier "def-agop"^^xsd:token ;
+    dcterms:modified "2021-03-17"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "Australian Government Ontology Profile"@en .
+
+<https://linked.data.gov.au/def/crs> a dcat:Resource ;
+    dcterms:created "2018-09-10"^^xsd:date ;
+    dcterms:creator <http://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """This ontology is an [OWL](https://www.w3.org/OWL/) interpretation of the Commonwealth Record Series (CRS) system's data model that is maintained by the [National Archives of Australia](http://naa.gov.au).
+
+This ontology specialises classes and properties from the [Organization Ontology](https://www.w3.org/TR/vocab-org/) and other well-known ontologies such as [Dublin Core](http://dublincore.org/schemas/rdfs/) & [PROV](https://www.w3.org/TR/prov-o/) to describe CRS things in specific terms but also in relation to well-known generic terms."""@en ;
+    dcterms:identifier "def-crs"^^xsd:token ;
+    dcterms:modified "2020-07-24"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/naa> ;
+    dcterms:title "Commonwealth Record Series Ontology" ;
+    sdo:codeRepository "https://github.com/CSIRO-enviro-informatics/crs-ont/"^^xsd:anyURI .
+
+<https://linked.data.gov.au/def/ga-vocpub> a dcat:Resource ;
+    dcterms:created "2020-06-13"^^xsd:date ;
+    dcterms:creator <https://linked.data.gov.au/org/ga> ;
+    dcterms:description "This profile is Geoscience Australia's profile of the [Vocabulary Publications Profile](https://w3id.org/profile/vocpub) which, in turn, profiles the SKOS vocabulary data model. This profile adds rules for Geoscience Australia's business requirements on top of those already applied to SKOS use by the VocPub profile. Currently, additional rules are informed by general Australian govenrment's requirements such as that annotations must be in English. Also, GA vocabs must have GA indicated as the publisher."@en ;
+    dcterms:identifier "def-ga-vocpub"^^xsd:token ;
+    dcterms:modified "2021-03-29"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/ga> ;
+    dcterms:title "GA VocPub Profile" .
+
+<https://linked.data.gov.au/def/geoadminfeatures> a dcat:Resource ;
+    dcterms:created "2019-12-04"^^xsd:date ;
+    dcterms:creator <https://linked.data.gov.au/org/gsq> ;
+    dcterms:description """This ontology describes a class hierarchy relevant to the administrative duties of the Geological Survey of Queensland.
+
+Within a class hierarchy starting at GeoSPARQL Ontology's `Feature` class, this ontology defines an `Administrative Feature` subclass and further subclasses of it, some with class interrelations. The classes defined include `Block`, `Permit` etc., some of which are defined in Queensland or Australian legislation.
+
+This ontology is part of the Geological Survey of Queensland's set of *component* ontologies that together provide definitions for all of GSQ's data. Of particular importance for this ontology is GSQ's Geological Features Ontology which defines multiple classes of geological feature."""@en ;
+    dcterms:identifier "def-geoadminfeatures"^^xsd:token ;
+    dcterms:modified "2020-04-15"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/gsq> ;
+    dcterms:title "GSQ Geological Administrative Features Ontology"@en ;
+    sdo:codeRepository "https://github.com/geological-survey-of-queensland/gsq-geoadmin-features-ont"^^xsd:anyURI .
+
+<https://linked.data.gov.au/def/geox> a dcat:Resource ;
+    dcterms:created "2019-01-08"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420>,
+        <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description "An extension to [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql) with new features for the representation of additional elements of feature geometry, such as spatial-resolution, length, area and volume. " ;
+    dcterms:identifier "def-geox"^^xsd:token ;
+    dcterms:modified "2020-06-24"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/csiro> ;
+    dcterms:title "GeoSPARQL Extensions Ontology"@en ;
+    sdo:codeRepository "https://github.com/CSIRO-enviro-informatics/geosparql-ext-ont"^^xsd:anyURI .
+
+<https://linked.data.gov.au/def/loci> a dcat:Resource ;
+    dcterms:created "2018-10-29"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420>,
+        <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:description """An ontology to govern Linked Data resources published within the [Loc-I](https://confluence.csiro.au/display/DIPAAnalyticHubs/Location+Integration+Capability+Loc-I) project.\r
+\r
+The primary focus is on (a) datasets composed of multiple geospatial features (objects); (b) recording relationships between features, with metadata attached to reified rdf:Statements."""@en ;
+    dcterms:identifier "def-loci"^^xsd:token ;
+    dcterms:modified "2021-04-01"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/csiro> ;
+    dcterms:title "Loc-I Ontology"@en .
+
+<https://linked.data.gov.au/def/su> a dcat:Resource ;
+    dcterms:created "2020-11-11"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
+    dcterms:description "This is an extremely simple profile whos purpose is only to provide a Semantic Web view of the data contained within the [Australian Stratigraphic Units Database](http://pid.geoscience.gov.au/dataset/ga/21884). Data from that database is also available according to a number of other profiles, including:" ;
+    dcterms:identifier "def-su"^^xsd:token ;
+    dcterms:modified "2020-11-11"^^xsd:date ;
+    dcterms:publisher <https://linked.data.gov.au/org/ga> ;
+    dcterms:title "Stratigraphic Units Profile"@en .
+
+<https://linked.data.gov.au/org> a dcat:Resource ;
+    dcterms:creator <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:description "This register contains dataset IRIs for organisations registered with the Australian Government Linked Data Working Group. This RDF representation of it is incomplete but will shortly be delegated to a catalogue that will list all IRIs within the register." ;
+    dcterms:identifier "org"^^xsd:token ;
+    dcterms:publisher <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "AGLDWG Register of Organisation IRIs" .
+
+<https://linked.data.gov.au/reg/> a dcat:Resource ;
+    dcterms:creator <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:description "This register contains the Australian Government Linked Data Working Group's IRI Registers. Currently (March, 2021) there are 3 registers for Datasets, Definitions & Organisations" ;
+    dcterms:identifier "reg-"^^xsd:token ;
+    dcterms:publisher <https://linked.data.gov.au/org/agldwg> ;
+    dcterms:title "AGLDWG Register of IRI Registers" .
+

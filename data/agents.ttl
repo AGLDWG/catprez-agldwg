@@ -1,0 +1,27 @@
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<http://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car" ;
+    sdo:identifier <http://orcid.org/0000-0002-8742-7730> ;
+    sdo:email "nicholas.car@surroundaustralia.com"^^xsd:anyURI ;
+    sdo:affiliation <https://surroundaustralia.com> ;
+.
+
+<https://linked.data.gov.au/org/agldwg>
+    a sdo:Organization ;
+    sdo:identifier <https://linked.data.gov.au/org/agldwg> ;
+    sdo:name "Australian Government Linked Data Working Group" ;
+    sdo:url "https://www.linked.data.gov.au"^^xsd:anyURI ;
+.
+
+<https://orcid.org/0000-0002-3884-3420>
+    a sdo:Person ;
+    sdo:name "Simon J.D. Cox" ;
+    sdo:identifier <https://orcid.org/0000-0002-3884-3420> ;
+    sdo:email "simon.cox@csiro.au"^^xsd:anyURI ;
+    sdo:affiliation <https://linked.data.gov.au/org/csiro> ;
+    sdo:url "https://people.csiro.au/C/S/Simon-Cox"^^xsd:anyURI ;
+.

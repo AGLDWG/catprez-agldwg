@@ -1,0 +1,19 @@
+Docker Commands
+---------------
+Just some reference Docker commands used to crete and use Docker images/containers of CatPrez
+
+
+# list all containers
+docker ps -a
+
+# delete container
+docker container rm 209a3dabc50f
+
+# run
+docker run --name catprez-agldwg1 -p 5000:5000 catprez-agldwg
+
+# list images
+docker image list
+
+# delete image
+docker image rm ec9e497312e2
