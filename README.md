@@ -1,5 +1,5 @@
-# AGLDWG IRI Resource catalogue
-This repository contains [DCAT2](https://www.w3.org/TR/vocab-dcat/)-conformant `Resource` instances for each IRI that the [Australian Govenrment Linked Data Working Group (AGLDWG)](https://www.linked.data.gov.au) has issued within the `linked.data.gov.au` persistent web domain.
+# AGLDWG IRI Resource catalogue source data
+This repository contains [DCAT2](https://www.w3.org/TR/vocab-dcat/)-conformant `Resource` instances - data, in files - for each IRI that the [Australian Govenrment Linked Data Working Group (AGLDWG)](https://www.linked.data.gov.au) has issued within the `linked.data.gov.au` persistent web domain.
 
 ## NOTE: this repository is not ready for use yet, it is early development
 
