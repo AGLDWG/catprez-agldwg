@@ -1,0 +1,258 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <https://linked.data.gov.au/def/agop/shapes/> .
+
+
+#
+#   Ontology
+#
+<Requirement-2.2.1>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.1 An ontology _MUST_ have one and only one title indicated by a `skos:prefLabel` property linking to a textual literal value, in English." ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+<Requirement-2.2.2>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.2 An ontology _MUST_ have one and only one definition indicated by a `skos:definition` property linking to a text literal value, in English." ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+<Requirement-2.2.3>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.3 An ontology _MUST_ have one and only one publisher indicated by a `dcterms:publisher` property that links to a publishing agent, likely a government agency, identified by an IRI that _MUST_ be catalogued by the Australian Government Linked Data Working Group within their `/org/` register." ;
+    sh:property [
+        sh:path dcterms:publisher ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.2.4>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.4 An ontology _MUST_ have one or more creator indicated by a `dcterms:creator` property that links to creating agents, which may be persons or organisations. They _MUST_ be identified by IRI that must either be catalogued by the Australian Government Linked Data Working Group within their `/org/` register (for Organisation) or have basic schema.org metadata supplied for it (for Persons) with `sdo:name` at a minimum and `sdo:email` suggested." ;
+    sh:property [
+        sh:path dcterms:creator ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.2.5>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.5 An ontology _MUST_ have one and only one created date indicated by a `dcterms:created` property that links to an `xsd:date` literal or specialised datatype thereof for the date on which the ontology was first created." ;
+    sh:property [
+        sh:path dcterms:created ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+            [ sh:datatype xsd:dateTimeStamp ]
+        )
+    ]
+.
+
+<Requirement-2.2.6>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.6 An ontology _MUST_ have one and only one modified date indicated by a `dcterms:modified` property that links to an `xsd:date` literal or specialised datatype thereof for the date on which the ontology was last modified." ;
+    sh:property [
+        sh:path dcterms:modified ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+            [ sh:datatype xsd:dateTimeStamp ]
+        )
+    ]
+.
+
+<Requirement-2.2.7>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.7 An ontology _MUST_ have one and only one license (or licence) indicated by a `dcterms:license` property that links to a license identified by an IRI. " ;
+    sh:property [
+        sh:path dcterms:license ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.2.8>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message """Requirement 2.2.8 An ontology _MUST_ have one and only one rights statement that includes copyright information indicated by a `dcterms:rights` property that links to a string literal value. The string value _SHOULD_ of the form "&copy; AGENCY NAME, YEAR" or "&copy; Australian Government, YEAR".""" ;
+    sh:property [
+        sh:path dcterms:rights ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+    ]
+.
+
+<Requirement-2.2.9>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.9 An ontology _SHOULD_ have one and only one version identifier indicated by a `owl:versionIRI` property that links to a unique IRI for the version of the ontology." ;
+    sh:property [
+        sh:path owl:versionIRI ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.2.10>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.10 An ontology _SHOULD_ have one and only one version information statement indicated by a `owl:versionInfo` property that links to a string literal value containing notes for the version of the ontology." ;
+    sh:property [
+        sh:path owl:versionInfo ;
+        sh:datatype xsd:string ;
+    ]
+.
+
+<Requirement-2.2.11>
+	a sh:NodeShape ;
+	sh:targetClass owl:Ontology ;
+    sh:message "Requirement 2.2.11 An ontology that is presented or managed online using an online version control repository _SHOULD_ indicate the location of that repository with the `sdo:codeRepository` property that links to the IRI of the online version control repository repsenseted as a literal value of type `xsd:anyURI`." ;
+    sh:property [
+        sh:path sdo:codeRepository ;
+        sh:datatype xsd:anyURI ;
+    ]
+.
+
+#
+#   Classes
+#
+<Requirement-2.3.1>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Class , owl:Class ;
+    sh:message "Requirement 2.3.1 Each class defined by the ontology _MUST_ indicate that it is defined by it by a `rdfs:isDefinedBy` property indicating the IRI of the ontology." ;
+    sh:property [
+        sh:path rdfs:isDefinedBy ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.3.2>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Class , owl:Class ;
+    sh:message "Requirement 2.3.2 Each class described within the ontology _MUST_ have one and only one title indicated by a `skos:prefLabel` property linking to a textual literal value, in English. the title _SHOULD_ be rendered in natural English and if made of multiple words, spaces should be used between the words." ;
+    sh:and (
+        [
+            sh:path rdfs:isDefinedBy ;
+            sh:value [ rdfs:type owl:Ontology ]
+        ]
+        [
+            sh:property [
+                sh:path skos:prefLabel ;
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:datatype rdf:langString ;
+                sh:languageIn ("en") ;
+            ]
+        ]
+    )
+    # TODO: only if the class is defined in this ontology
+.
+
+<Requirement-2.3.3>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Class , owl:Class ;
+    sh:message "Requirement 2.3.3 Each class described within the ontology _MUST_ have one and only one definition indicated by a `skos:definition` property linking to a text literal value, in English." ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:languageIn ("en") ;
+    ]
+    # TODO: only if the class is defined in this ontology
+.
+
+<Requirement-2.3.4>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Class , owl:Class ;
+    sh:message "Requirement 2.3.4 Each class described within the ontology _SHOULD_ indicate any relationships to classes in existing common ontologies or ontologies published by by Australian Government entities with the appropriate RDFS or OWL properties." ;
+.
+
+#
+#   Properties
+#
+<Requirement-2.3.1>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Property , owl:AnnotationProperty , owl:ObjectProperty , owl:DatatypeProperty ;
+    sh:message "Requirement 2.4.1 Each property defined by the ontology _MUST_ indicate that it is defined by it by a `rdfs:isDefinedBy` property indicating the IRI of the ontology." ;
+    sh:property [
+        sh:path rdfs:isDefinedBy ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ]
+.
+
+<Requirement-2.3.2>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Property , owl:AnnotationProperty , owl:ObjectProperty , owl:DatatypeProperty ;
+    sh:message "Requirement 2.4.2 Each property described within the ontology _MUST_ have one and only one title indicated by a `skos:prefLabel` property linking to a textual literal value, in English. the title _SHOULD_ be rendered in natural English and if made of multiple words, spaces should be used between the words." ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:languageIn ("en") ;
+    ]
+    # TODO: only if the property is defined in this ontology
+.
+
+<Requirement-2.3.3>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Property , owl:AnnotationProperty , owl:ObjectProperty , owl:DatatypeProperty ;
+    sh:message "Requirement 2.4.3 Each property described within the ontology _MUST_ have one and only one definition indicated by a `skos:definition` property linking to a text literal value, in English." ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:languageIn ("en") ;
+    ]
+    # TODO: only if the property is defined in this ontology
+.
+
+<Requirement-2.3.4>
+	a sh:NodeShape ;
+	sh:targetClass rdfs:Property , owl:AnnotationProperty , owl:ObjectProperty , owl:DatatypeProperty ;
+    sh:message "Requirement 2.4.4 Each property described within the ontology _SHOULD_ indicate any relationships to property in existing common ontologies or ontologies published by by Australian Government entities with the appropriate RDFS or OWL properties." ;
+.
+
+#
+#   Namespaces
+#
+

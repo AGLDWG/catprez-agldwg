@@ -1,0 +1,103 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <https://linked.data.gov.au/def/ga-skos/shapes/> .
+
+
+#
+#   Vocabulary
+#
+<Requirement-2.1.1>
+	a sh:NodeShape ;
+	sh:targetClass skos:ConceptScheme ;
+    sh:message "Requirement 2.1.1 Each vocabulary _MUST_ have its publisher identified as Geoscience Australia" ;
+    sh:property [
+        sh:path dcterms:publisher ;
+        sh:value <https://linked.data.gov.au/og/ga> ;
+    ]
+.
+
+<Requirement-2.1.2>
+	a sh:NodeShape ;
+	sh:targetClass skos:ConceptScheme ;
+    sh:message "Requirement 2.1.2 Each vocabulary _MUST_ indicate a Geoscience Australia person as its contact point" ;
+    sh:property [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:class sdo:Person ;
+    ]
+.
+
+<Requirement-2.1.3>
+	a sh:NodeShape ;
+	sh:targetClass skos:ConceptScheme ;
+    sh:message "Requirement 2.1.3 Each vocabulary _MUST_ have its main label in English" ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+<Requirement-2.1.4>
+	a sh:NodeShape ;
+	sh:targetClass skos:ConceptScheme ;
+    sh:message "Requirement 2.1.4 Each vocabulary _MUST_ have a definition in English" ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+
+#
+#   Collections
+#
+<Requirement-2.2.1>
+	a sh:NodeShape ;
+	sh:targetClass skos:Collection ;
+    sh:message "Requirement 2.1.3 Each `skos:Collection` _MUST_ have its main label in English" ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+<Requirement-2.2.1>
+	a sh:NodeShape ;
+	sh:targetClass skos:Collection ;
+    sh:message "Requirement 2.1.4 Each `skos:Collection` _MUST_ have a definition in English" ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+#
+#   Concept
+#
+<Requirement-2.3.1>
+	a sh:NodeShape ;
+	sh:targetClass skos:Concept ;
+    sh:message "Requirement 2.1.3 Each `skos:Concept` _MUST_ have its main label in English" ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:languageIn ("en") ;
+    ]
+.
+
+<Requirement-2.3.1>
+	a sh:NodeShape ;
+	sh:targetClass skos:Concept ;
+    sh:message "Requirement 2.1.4 Each `skos:Concept` _MUST_ have a definition in English" ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:languageIn ("en") ;
+    ]
+.

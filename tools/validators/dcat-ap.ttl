@@ -1,0 +1,762 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix eudata: <http://data.europa.eu/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.europa.eu/r5r#Agent_Shape> a sh:NodeShape ;
+    sh:name "Agent"@en ;
+    sh:property [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:maxCount 1 ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path foaf:name ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass foaf:Agent .
+
+<http://data.europa.eu/r5r#CatalogRecord_Shape> a sh:NodeShape ;
+    sh:name "Catalog Record"@en ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LinguisticSystem ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:maxCount 1 ;
+            sh:path <http://www.w3.org/ns/adms#status> ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Standard ;
+            sh:maxCount 1 ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:CatalogRecord ;
+            sh:maxCount 1 ;
+            sh:path dcterms:source ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DcatResource_Shape> ;
+            sh:path foaf:primaryTopic ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path dcterms:modified ;
+            sh:severity sh:Violation ;
+            sh:shape <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ] ;
+    sh:targetClass dcat:CatalogRecord .
+
+<http://data.europa.eu/r5r#Catalog_Shape> a sh:NodeShape ;
+    sh:name "Catalog"@en ;
+    sh:property [ sh:class dcat:Catalog ;
+            sh:path dcterms:hasPart ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ;
+            sh:path dcterms:modified ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Dataset ;
+            sh:minCount 1 ;
+            sh:path dcat:dataset ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:maxCount 1 ;
+            sh:path dcterms:rights ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LinguisticSystem ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Agent ;
+            sh:maxCount 1 ;
+            sh:path dcterms:creator ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Location ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Document ;
+            sh:maxCount 1 ;
+            sh:path foaf:homepage ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:maxCount 1 ;
+            sh:path dcterms:license ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+            sh:path dcat:themeTaxonomy ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Catalog ;
+            sh:path dcat:catalog ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:DataService ;
+            sh:path dcat:service ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Catalog ;
+            sh:maxCount 1 ;
+            sh:path dcterms:isPartOf ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Agent ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:CatalogRecord ;
+            sh:path dcat:record ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:Catalog .
+
+<http://data.europa.eu/r5r#Catalog_ShapeCV> a sh:NodeShape ;
+    sh:property [ sh:description "Multiple themes can be used but at least <http://publications.europa.eu/resource/authority/data-theme> should be present" ;
+            sh:hasValue <http://publications.europa.eu/resource/authority/data-theme> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcat:themeTaxonomy ;
+            sh:severity sh:Warning ],
+        [ sh:description "A non EU managed concept is used to indicate a language. If no corresponding can be found inform the maintainer of the EU language NAL" ;
+            sh:node <http://data.europa.eu/r5r#LanguageRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:description "A non EU managed concept is used to indicate the publisher, check if a corresponding exists in the EU corporates bodies NAL" ;
+            sh:node <http://data.europa.eu/r5r#CorporateBodyRestriction>,
+                <http://data.europa.eu/r5r#Publisher_ShapeCV> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Warning ],
+        [ sh:description "A non managed concept is used to indicate a spatial description, check if a corresponding exists" ;
+            sh:node [ a sh:NodeShape ;
+                    sh:or ( <http://data.europa.eu/r5r#CountryRestriction> <http://data.europa.eu/r5r#PlaceRestriction> <http://data.europa.eu/r5r#ContinentRestriction> <http://data.europa.eu/r5r#GeoNamesRestriction> ) ] ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass dcat:Catalog .
+
+<http://data.europa.eu/r5r#CategoryScheme_Shape> a sh:NodeShape ;
+    sh:name "Category Scheme"@en ;
+    sh:property [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://data.europa.eu/r5r#Category_Shape> a sh:NodeShape ;
+    sh:name "Category"@en ;
+    sh:property [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <http://www.w3.org/2004/02/skos/core#prefLabel> ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass <http://www.w3.org/2004/02/skos/core#Concept> .
+
+<http://data.europa.eu/r5r#Checksum_Shape> a sh:NodeShape ;
+    sh:name "Checksum"@en ;
+    sh:property [ sh:hasValue <http://spdx.org/rdf/terms#checksumAlgorithm_sha1> ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <http://spdx.org/rdf/terms#algorithm> ;
+            sh:severity sh:Violation ],
+        [ sh:dateTime xsd:hexBinary ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path <http://spdx.org/rdf/terms#checksumValue> ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass <http://spdx.org/rdf/terms#Checksum> .
+
+<http://data.europa.eu/r5r#DataService_Shape> a sh:NodeShape ;
+    sh:name "Data Service"@en ;
+    sh:property [ sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcat:endpointURL ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:maxCount 1 ;
+            sh:path dcterms:licence ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Dataset ;
+            sh:path dcat:servesDataset ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:maxCount 1 ;
+            sh:path dcterms:accessRights ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcat:endpointDescription ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:DataService .
+
+<http://data.europa.eu/r5r#Dataset_Shape> a sh:NodeShape ;
+    sh:name "Dataset"@en ;
+    sh:property [ sh:class foaf:Agent ;
+            sh:maxCount 1 ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcterms:relation ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Dataset ;
+            sh:path dcterms:isVersionOf ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Document ;
+            sh:path foaf:page ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:maxCount 1 ;
+            sh:path dcterms:accessRights ;
+            sh:severity sh:Violation ],
+        [ sh:datatype xsd:duration ;
+            sh:path dcat:temporalResolution ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:PeriodOfTime ;
+            sh:path dcterms:temporal ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/ns/adms#Identifier> ;
+            sh:path <http://www.w3.org/ns/adms#identifier> ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/ns/prov#Attribution> ;
+            sh:path <http://www.w3.org/ns/prov#qualifiedAttribution> ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LinguisticSystem ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation ;
+            sh:shape <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path <http://www.w3.org/ns/adms#versionNotes> ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Standard ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:ProvenanceStatement ;
+            sh:path dcterms:provenance ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Dataset ;
+            sh:path dcterms:hasVersion ;
+            sh:severity sh:Violation ],
+        [ sh:datatype xsd:decimal ;
+            sh:path dcat:spatialResolutionInMeters ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Agent ;
+            sh:maxCount 1 ;
+            sh:path dcterms:creator ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Location ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:identifier ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/ns/prov#Activity> ;
+            sh:path <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Distribution ;
+            sh:path <http://www.w3.org/ns/adms#sample> ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:maxCount 1 ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcat:keyword ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Frequency ;
+            sh:maxCount 1 ;
+            sh:path dcterms:accrualPeriodicity ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path owl:versionInfo ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:path dcat:theme ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Distribution ;
+            sh:path dcat:distribution ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Relationship ;
+            sh:path dcat:qualifiedRelation ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2006/vcard/ns#Kind> ;
+            sh:path dcat:contactPoint ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <http://purl.org/dc/elements/1.1/isReferencedBy> ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Document ;
+            sh:path dcat:landingPage ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:Dataset ;
+            sh:path dcterms:source ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:path dcterms:modified ;
+            sh:severity sh:Violation ;
+            sh:shape <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ] ;
+    sh:targetClass dcat:Dataset .
+
+<http://data.europa.eu/r5r#Dataset_ShapeCV> a sh:NodeShape ;
+    sh:property [ sh:description "Multiple themes can be used but at least one concept of <http://publications.europa.eu/resource/authority/data-theme> should be present" ;
+            sh:node <http://data.europa.eu/r5r#DataThemeRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcat:theme ;
+            sh:severity sh:Warning ],
+        [ sh:description "A non EU managed concept is used to indicate the publisher, check if a corresponding exists in the EU corporates bodies NAL" ;
+            sh:node <http://data.europa.eu/r5r#CorporateBodyRestriction>,
+                <http://data.europa.eu/r5r#Publisher_ShapeCV> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Warning ],
+        [ sh:description "A non managed concept is used to indicate a spatial description, check if a corresponding exists" ;
+            sh:node [ a sh:NodeShape ;
+                    sh:or ( <http://data.europa.eu/r5r#CountryRestriction> <http://data.europa.eu/r5r#PlaceRestriction> <http://data.europa.eu/r5r#ContinentRestriction> <http://data.europa.eu/r5r#GeoNamesRestriction> ) ] ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Warning ],
+        [ sh:description "A non EU managed concept is used to indicate the accrualPeriodicity frequency. If no corresponding can be found inform the maintainer of the EU frequency NAL" ;
+            sh:node <http://data.europa.eu/r5r#FrequencyRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:accrualPeriodicity ;
+            sh:severity sh:Violation ],
+        [ sh:description "A non EU managed concept is used to indicate a language. If no corresponding can be found inform the maintainer of the EU language NAL" ;
+            sh:node <http://data.europa.eu/r5r#LanguageRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:Dataset .
+
+<http://data.europa.eu/r5r#Distribution_Shape> a sh:NodeShape ;
+    sh:name "Distribution"@en ;
+    sh:property [ sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcat:accessURL ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:MediaType ;
+            sh:maxCount 1 ;
+            sh:path dcat:compressFormat ;
+            sh:severity sh:Violation ],
+        [ sh:class foaf:Document ;
+            sh:path foaf:page ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:Standard ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ;
+            sh:path dcterms:issued ;
+            sh:severity sh:Violation ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:path dcat:byteSize ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/ns/odrl/2/Policy> ;
+            sh:maxCount 1 ;
+            sh:path <http://www.w3.org/ns/odrl/2/hasPolicy> ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path dcat:downloadURL ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ;
+            sh:path dcterms:modified ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:maxCount 1 ;
+            sh:path <http://www.w3.org/ns/adms#status> ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:description ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:MediaType ;
+            sh:maxCount 1 ;
+            sh:path dcat:mediaType ;
+            sh:severity sh:Violation ],
+        [ sh:class dcat:DataService ;
+            sh:path dcat:accessService ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LinguisticSystem ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:maxCount 1 ;
+            sh:path dcterms:license ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:MediaTypeOrExtent ;
+            sh:maxCount 1 ;
+            sh:path dcterms:format ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://spdx.org/rdf/terms#Checksum> ;
+            sh:maxCount 1 ;
+            sh:path <http://spdx.org/rdf/terms#checksum> ;
+            sh:severity sh:Violation ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path dcterms:title ;
+            sh:severity sh:Violation ],
+        [ sh:datatype xsd:duration ;
+            sh:path dcat:temporalResolution ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:MediaType ;
+            sh:maxCount 1 ;
+            sh:path dcat:packageFormat ;
+            sh:severity sh:Violation ],
+        [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:maxCount 1 ;
+            sh:path eudata:r5ravailability ;
+            sh:severity sh:Violation ],
+        [ sh:datatype xsd:decimal ;
+            sh:path dcat:spatialResolutionInMeters ;
+            sh:severity sh:Violation ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:maxCount 1 ;
+            sh:path dcterms:rights ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:Distribution .
+
+<http://data.europa.eu/r5r#Distribution_ShapeCV> a sh:NodeShape ;
+    sh:property [ sh:description "A non EU managed concept is used to indicate a language. If no corresponding can be found inform the maintainer of the EU language NAL" ;
+            sh:node <http://data.europa.eu/r5r#LanguageRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:language ;
+            sh:severity sh:Violation ],
+        [ sh:description "A non EU managed concept is used to indicate the availability of the distribution. If no corresponding can be found inform the maintainer of the DCAT-AP availability codelist." ;
+            sh:node <http://data.europa.eu/r5r#AvailabilityRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path eudata:r5ravailability ;
+            sh:severity sh:Violation ],
+        [ sh:description "A non EU managed concept is used to indicate the status of the distribution. If no corresponding can be found inform the maintainer of the adms:status codelist." ;
+            sh:node <http://data.europa.eu/r5r#StatusRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/ns/adms#status> ;
+            sh:severity sh:Violation ],
+        [ sh:description "A non EU managed concept is used to indicate the format of the distribution. If no corresponding can be found inform the maintainer of the fileformat NAL." ;
+            sh:node <http://data.europa.eu/r5r#FileTypeRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:format ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:Distribution .
+
+<http://data.europa.eu/r5r#Identifier_Shape> a sh:NodeShape ;
+    sh:name "Identifier"@en ;
+    sh:property [ sh:maxCount 1 ;
+            sh:path <http://www.w3.org/2004/02/skos/core#notation> ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<http://data.europa.eu/r5r#LicenceDocument_Shape> a sh:NodeShape ;
+    sh:name "Licence Document"@en ;
+    sh:property [ sh:class <http://www.w3.org/2004/02/skos/core#Concept> ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcterms:LicenseDocument .
+
+<http://data.europa.eu/r5r#LicenseDocument_ShapeCV> a sh:NodeShape ;
+    sh:property [ sh:node <http://data.europa.eu/r5r#LicenceTypeRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:type ] ;
+    sh:targetClass dcterms:LicenseDocument .
+
+<http://data.europa.eu/r5r#Location_Shape> a sh:NodeShape ;
+    sh:name "Location"@en ;
+    sh:property [ sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcat:bbox ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path dcat:centroid ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <http://www.w3.org/ns/locn#geometry> ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcterms:Location .
+
+<http://data.europa.eu/r5r#PeriodOfTime_Shape> a sh:NodeShape ;
+    sh:name "PeriodOfTime"@en ;
+    sh:property [ sh:maxCount 1 ;
+            sh:path dcat:endDate ;
+            sh:severity sh:Violation ;
+            sh:shape <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ],
+        [ sh:message "replace property schema:startDate with dcat:startDate"@en ;
+            sh:path <http://schema.org/startDate> ;
+            sh:severity sh:Warning ],
+        [ sh:class <http://www.w3.org/2006/time#Instant> ;
+            sh:maxCount 1 ;
+            sh:path <http://www.w3.org/2006/time#hasEnd> ;
+            sh:severity sh:Violation ],
+        [ sh:message "replace property schema:endDate with dcat:endDate"@en ;
+            sh:path <http://schema.org/endDate> ;
+            sh:severity sh:Warning ],
+        [ sh:class <http://www.w3.org/2006/time#Instant> ;
+            sh:maxCount 1 ;
+            sh:path <http://www.w3.org/2006/time#hasBeginning> ;
+            sh:severity sh:Violation ],
+        [ sh:maxCount 1 ;
+            sh:path dcat:startDate ;
+            sh:severity sh:Violation ;
+            sh:shape <http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> ] ;
+    sh:targetClass dcterms:PeriodOfTime .
+
+<http://data.europa.eu/r5r#Relationship_Shape> a sh:NodeShape ;
+    sh:name "Relationship"@en ;
+    sh:property [ sh:class dcat:Role ;
+            sh:minCount 1 ;
+            sh:path dcterms:relation ;
+            sh:severity sh:Violation ],
+        [ sh:minCount 1 ;
+            sh:node <http://data.europa.eu/r5r#DcatResource_Shape> ;
+            sh:path dcat:hadRole ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass dcat:Relationship .
+
+<http://data.europa.eu/r5r/mdr_shapes> cc:attributionURL <http://ec.europa.eu/> ;
+    eudata:r5ravailability <http://data.europa.eu/r5r/stable> ;
+    dcterms:conformsTo <https://www.w3.org/TR/shacl> ;
+    dcterms:creator [ rdfs:seeAlso <https://www.ails.ece.ntua.gr/people/natasa> ;
+            org:memberOf <https://www.ails.ece.ntua.gr/> ;
+            foaf:homepage <https://www.ails.ece.ntua.gr/people/natasa> ;
+            foaf:name "Natasa Sofou" ],
+        [ rdfs:seeAlso <http://www.deri.ie/users/vassilios-peristeras/> ;
+            org:memberOf <http://publications.europa.eu/resource/authority/corporate-body/COM> ;
+            foaf:homepage <http://www.deri.ie/users/vassilios-peristeras/> ;
+            foaf:name "Vassilios Peristeras" ],
+        [ rdfs:seeAlso <https://www.linkedin.com/in/bert-van-nuffelen-a349634/> ;
+            org:memberOf <https://tenforce.com> ;
+            foaf:homepage <https://www.linkedin.com/in/bert-van-nuffelen-a349634/> ;
+            foaf:name "Bert Van Nuffelen" ],
+        [ rdfs:seeAlso <http://eugeniu.costezki.ro#me> ;
+            org:memberOf <http://publications.europa.eu/resource/authority/corporate-body/PUBL> ;
+            foaf:homepage <http://costezki.ro> ;
+            foaf:name "Eugeniu Costetchi" ],
+        [ rdfs:seeAlso <http://makxdekkers.com/#me> ;
+            org:memberOf <http://ami-consult.com/#id> ;
+            foaf:homepage <http://makxdekkers.com/> ;
+            foaf:name "Makx Dekkers" ],
+        [ rdfs:seeAlso <http://nikosloutas.com/> ;
+            org:memberOf <http://www.pwc.com/gx/en/eu-institutions-services> ;
+            foaf:homepage <http://nikosloutas.com/> ;
+            foaf:name "Nikolaos Loutas" ] ;
+    dcterms:description "This document specifies the controlled vocabulary constraints on properties expressed by DCAT-AP in SHACL."@en ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0> ;
+    dcterms:modified "2019-11-15"^^xsd:date ;
+    dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/DIGIT> ;
+    dcterms:relation <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/release/200> ;
+    dcterms:title "Controlled Vocabulary Constraints of DCAT Application Profile for Data Portals in Europe"@en ;
+    owl:versionInfo "2.0.0" ;
+    dcat:accessURL <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/distribution/dcat-ap-200-shacl-shapes> ;
+    dcat:downloadURL <https://github.com/SEMICeu/DCAT-AP/raw/cea5a96bb4a6f120c20b7a2b3fb4d86bcd725952/releases/2.0.0/Draft/dcat-ap_2.0.0_shacl_shapes.ttl> ;
+    foaf:homepage <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/release/200> ;
+    foaf:maker [ foaf:mbox <mailto:contact@semic.eu> ;
+            foaf:name "DCAT-AP Working Group" ;
+            foaf:page <https://github.com/SEMICeu/DCAT-AP>,
+                <https://joinup.ec.europa.eu/node/64331> ] .
+
+<http://data.europa.eu/r5r/shacl_shapes> cc:attributionURL <http://ec.europa.eu/> ;
+    eudata:r5ravailability <http://data.europa.eu/r5r/stable> ;
+    dcterms:conformsTo <https://www.w3.org/TR/shacl> ;
+    dcterms:creator [ rdfs:seeAlso <http://eugeniu.costezki.ro#me> ;
+            org:memberOf <http://publications.europa.eu/resource/authority/corporate-body/PUBL> ;
+            foaf:homepage <http://costezki.ro> ;
+            foaf:name "Eugeniu Costetchi" ],
+        [ rdfs:seeAlso <http://www.deri.ie/users/vassilios-peristeras/> ;
+            org:memberOf <http://publications.europa.eu/resource/authority/corporate-body/COM> ;
+            foaf:homepage <http://www.deri.ie/users/vassilios-peristeras/> ;
+            foaf:name "Vassilios Peristeras" ],
+        [ rdfs:seeAlso <https://www.ails.ece.ntua.gr/people/natasa> ;
+            org:memberOf <https://www.ails.ece.ntua.gr/> ;
+            foaf:homepage <https://www.ails.ece.ntua.gr/people/natasa> ;
+            foaf:name "Natasa Sofou" ],
+        [ rdfs:seeAlso <http://makxdekkers.com/#me> ;
+            org:memberOf <http://ami-consult.com/#id> ;
+            foaf:homepage <http://makxdekkers.com/> ;
+            foaf:name "Makx Dekkers" ],
+        [ rdfs:seeAlso <http://nikosloutas.com/> ;
+            org:memberOf <http://www.pwc.com/gx/en/eu-institutions-services> ;
+            foaf:homepage <http://nikosloutas.com/> ;
+            foaf:name "Nikolaos Loutas" ],
+        [ rdfs:seeAlso <https://www.linkedin.com/in/bert-van-nuffelen-a349634/> ;
+            org:memberOf <https://tenforce.com> ;
+            foaf:homepage <https://www.linkedin.com/in/bert-van-nuffelen-a349634/> ;
+            foaf:name "Bert Van Nuffelen" ] ;
+    dcterms:description "This document specifies the constraints on properties and classes expressed by DCAT-AP in SHACL."@en ;
+    dcterms:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0> ;
+    dcterms:modified "2019-11-15"^^xsd:date ;
+    dcterms:publisher <http://publications.europa.eu/resource/authority/corporate-body/DIGIT> ;
+    dcterms:relation <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/release/200> ;
+    dcterms:title "The constraints of DCAT Application Profile for Data Portals in Europe"@en ;
+    owl:versionInfo "2.0.0" ;
+    dcat:accessURL <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/distribution/dcat-ap-200-shacl-shapes> ;
+    dcat:downloadURL <https://github.com/SEMICeu/DCAT-AP/raw/cea5a96bb4a6f120c20b7a2b3fb4d86bcd725952/releases/2.0.0/Draft/dcat-ap_2.0.0_shacl_shapes.ttl> ;
+    foaf:homepage <https://joinup.ec.europa.eu/solution/dcat-application-profile-data-portals-europe/release/200> ;
+    foaf:maker [ foaf:mbox <mailto:contact@semic.eu> ;
+            foaf:name "DCAT-AP Working Group" ;
+            foaf:page <https://github.com/SEMICeu/DCAT-AP>,
+                <https://joinup.ec.europa.eu/node/64331> ] .
+
+<http://data.europa.eu/r5r#AvailabilityRestriction> a sh:NodeShape ;
+    rdfs:label "Availability restriction" ;
+    rdfs:comment "Availability restriction" ;
+    sh:property [ sh:hasValue <http://data.europa.eu/r5r/availability/1.0> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#DataThemeRestriction> a sh:NodeShape ;
+    rdfs:label "Data Theme Restriction" ;
+    rdfs:comment "Data Theme Restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/data-theme> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#FileTypeRestriction> a sh:NodeShape ;
+    rdfs:label "File Type Restriction" ;
+    rdfs:comment "File Type Restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/file-type> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#FrequencyRestriction> a sh:NodeShape ;
+    rdfs:label "Frequency Restriction" ;
+    rdfs:comment "Frequency Restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/frequency> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#LicenceTypeRestriction> a sh:NodeShape ;
+    rdfs:label "Licence type restriction" ;
+    rdfs:comment "Licence type restriction" ;
+    sh:property [ sh:hasValue <http://purl.org/adms/licencetype/1.0> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#PublisherTypeRestriction> a sh:NodeShape ;
+    rdfs:label "Publisher type restriction" ;
+    rdfs:comment "Publisher type restriction" ;
+    sh:property [ sh:class <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+            sh:hasValue <http://purl.org/adms/publishertype/1.0> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#StatusRestriction> a sh:NodeShape ;
+    rdfs:label "Status restriction" ;
+    rdfs:comment "Status restriction" ;
+    sh:property [ sh:class <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+            sh:hasValue <http://purl.org/adms/status/1.0> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#ContinentRestriction> a sh:NodeShape ;
+    rdfs:label "Continent restriction" ;
+    rdfs:comment "Continent restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/continent> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#CorporateBodyRestriction> a sh:NodeShape ;
+    rdfs:label "Corporate Body Restriction" ;
+    rdfs:comment "Corporate Body Restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/corporate-body> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#CountryRestriction> a sh:NodeShape ;
+    rdfs:label "Country restriction" ;
+    rdfs:comment "Country restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/country> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#DcatResource_Shape> a sh:NodeShape ;
+    rdfs:label "dcat:Resource" ;
+    rdfs:comment "the union of Catalog, Dataset and DataService" ;
+    sh:message "The node is either a Catalog, Dataset or a DataService" ;
+    sh:or ( [ sh:class dcat:Catalog ] [ sh:class dcat:Dataset ] [ sh:class dcat:DataService ] ) .
+
+<http://data.europa.eu/r5r#GeoNamesRestriction> a sh:NodeShape ;
+    rdfs:label "Geo names restriction" ;
+    rdfs:comment "Geo names restriction" ;
+    sh:property [ sh:hasValue <http://sws.geonames.org> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#PlaceRestriction> a sh:NodeShape ;
+    rdfs:label "Place restriction" ;
+    rdfs:comment "Place restriction" ;
+    sh:property [ sh:class <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+            sh:hasValue <http://publications.europa.eu/resource/authority/place> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#Publisher_ShapeCV> a sh:NodeShape ;
+    sh:property [ sh:description "A non EU managed concept is used to indicate the type of the publisher. If no corresponding can be found inform the maintainer of the adms:publishertype codelist." ;
+            sh:node <http://data.europa.eu/r5r#PublisherTypeRestriction> ;
+            sh:nodeKind sh:IRI ;
+            sh:path dcterms:type ;
+            sh:severity sh:Violation ] .
+
+<http://data.europa.eu/r5r#LanguageRestriction> a sh:NodeShape ;
+    rdfs:label "Language Restriction" ;
+    rdfs:comment "Language Restriction" ;
+    sh:property [ sh:hasValue <http://publications.europa.eu/resource/authority/language> ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <http://www.w3.org/2004/02/skos/core#inScheme> ] .
+
+<http://data.europa.eu/r5r#DateOrDateTimeDataType_Shape> a sh:NodeShape ;
+    rdfs:label "Date time date disjunction" ;
+    rdfs:comment "Date time date disjunction shape checks that a datatype property receives a date or a dateTime literal" ;
+    sh:message "The values must be data typed as either xsd:date or xsd:dateTime" ;
+    sh:or ( [ sh:datatype xsd:date ] [ sh:datatype xsd:dateTime ] ) .
+
